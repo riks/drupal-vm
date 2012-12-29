@@ -16,3 +16,9 @@ Weblinks
 
 # Create a virtual machine
 vagrant up
+
+# Firewall
+* Centos Firewall: 
+** http://www.rackspace.com/knowledge_center/article/centos-apache-and-php-install#Apache_Install
+** http://geek.jasonhancock.com/2011/10/11/managing-iptables-firewalls-with-puppet/
+** https://github.com/example42/puppet-iptables
