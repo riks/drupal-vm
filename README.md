@@ -29,3 +29,5 @@ vagrant up
 * Builder (Vagrant, Virtualbox, Puppet)
 * Drupal Blueprint (Drupal, Features, Install profile, make file, aliases, directory structure)
 * Eclipse settings for local drupal, php, symfony development
+* Puppet Manifest for logration settings.
+* Define a location for the logs of vhosts.

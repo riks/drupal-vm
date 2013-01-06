@@ -42,7 +42,7 @@ Listen <%= scope.lookupvar('apache::params::port') %>
 #LoadModule ldap_module modules/mod_ldap.so
 #LoadModule authnz_ldap_module modules/mod_authnz_ldap.so
 #LoadModule include_module modules/mod_include.so
-#LoadModule log_config_module modules/mod_log_config.so
+LoadModule log_config_module modules/mod_log_config.so
 #LoadModule logio_module modules/mod_logio.so
 #LoadModule env_module modules/mod_env.so
 #LoadModule ext_filter_module modules/mod_ext_filter.so
@@ -93,7 +93,12 @@ Group apache
 #UseCanonicalName Off
 
 Options None
-AllowOverride None
+<Directory /> 
+	#Order Allow,Deny
+	#Deny from all 
+	Options None 
+	AllowOverride None
+</Directory>
 
 DirectoryIndex index.html
 
@@ -116,9 +121,10 @@ TypesConfig /etc/mime.types
 #HostnameLookups Off
 #EnableMMAP off
 #EnableSendfile off
+
 #ErrorLog logs/error_log
-#LogLevel warn
-#LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogLevel <%= scope.lookupvar('apache::params::loglevel') %>
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
 #LogFormat "%h %l %u %t \"%r\" %>s %b" common
 #LogFormat "%{Referer}i -> %U" referer
 #LogFormat "%{User-agent}i" agent
@@ -157,10 +163,14 @@ TypesConfig /etc/mime.types
 NameVirtualHost *:<%= scope.lookupvar('apache::params::port') %>
 <VirtualHost *:<%= scope.lookupvar('apache::params::port') %>>
 	ServerName localhost
-	DocumentRoot /vagrant/public_html/localhost
+	DocumentRoot /vagrant/www/localhost/public_html
+	ErrorLog /vagrant/www/localhost/logs/error_log
+	CustomLog /vagrant/www/localhost/logs/access_log combined
 </VirtualHost>
 
 <VirtualHost *:<%= scope.lookupvar('apache::params::port') %>>
 	ServerName phpinfo
-	DocumentRoot /vagrant/public_html/phpinfo
+	DocumentRoot /vagrant/www/phpinfo/public_html
+	ErrorLog /vagrant/www/phpinfo/logs/error_log
+	CustomLog /vagrant/www/phpinfo/logs/access_log combined
 </VirtualHost>

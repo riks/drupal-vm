@@ -26,4 +26,5 @@ class apache::params::default {
   $keepalive = 'On'
   $port = 80
   $serversignature = 'Off'
+  $loglevel = 'warn'
 }
