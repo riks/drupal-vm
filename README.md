@@ -5,6 +5,7 @@ Install on host:
 * Virtualbox
 * Vagrant
 * Puppet
+* Git
 
 Weblinks
 * http://devops.me/2011/10/07/bootstrapping-vagrant-with-puppet/
