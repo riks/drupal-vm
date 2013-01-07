@@ -1,4 +1,4 @@
-## drupal-blueprint
+## drupal-vm
 
 # Initial setup on host
 Install on host:
