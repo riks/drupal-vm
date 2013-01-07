@@ -1,4 +1,4 @@
-## drupal-blueprint
+## drupal-vm
 
 # Initial setup on host
 Install on host:
@@ -15,14 +15,22 @@ Weblinks
 * https://github.com/drupalboxes/drupal-puppet
 * http://css.dzone.com/articles/creating-virtual-server
 
-# Create a virtual machine
-vagrant up
+# Prepare your tools and environment
+* Create a working directory on your host.
+* cd into this directory.
+* git clone https://github.com/Bussmeyer/drupal-vm.git
+* cd drupal-vm
+
+# Create and use your virtual machine
+* vagrant up
+* vagrant ssh
+* http://localhost:8888
 
 # Firewall
 * Centos Firewall: 
-** http://www.rackspace.com/knowledge_center/article/centos-apache-and-php-install#Apache_Install
-** http://geek.jasonhancock.com/2011/10/11/managing-iptables-firewalls-with-puppet/
-** https://github.com/example42/puppet-iptables
+* http://www.rackspace.com/knowledge_center/article/centos-apache-and-php-install#Apache_Install
+* http://geek.jasonhancock.com/2011/10/11/managing-iptables-firewalls-with-puppet/
+* https://github.com/example42/puppet-iptables
 
 # TODO (a more modular approach)
 * CI VM (Jenkins, PHPUnit, Simpletest, Drush, Drush make, Selenium)
