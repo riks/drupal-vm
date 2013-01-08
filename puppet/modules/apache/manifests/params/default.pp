@@ -22,7 +22,7 @@ class apache::params::default {
     default   => '/etc/httpd/conf.d'
   }
   
-  $timeout = 60
+  $timeout = 45
   $keepalive = 'On'
   $port = 80
   $serversignature = 'Off'

@@ -1,0 +1,31 @@
+[Tue Jan 08 22:25:57 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:37:38 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:38:54 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:39:49 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:39:53 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:05 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:05 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:06 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:06 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:16 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:22 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:22 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:22 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:23 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:24 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:24 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:24 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:24 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:24 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:24 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:40:25 2013] [error] [client 10.0.2.2] File does not exist: /vagrant/www/phpinfo/public_html/f
+[Tue Jan 08 22:43:13 2013] [error] [client 10.0.2.2] client denied by server configuration: /vagrant/www/phpinfo/public_html/
+[Tue Jan 08 22:43:28 2013] [error] [client 10.0.2.2] client denied by server configuration: /vagrant/www/phpinfo/public_html/
+[Tue Jan 08 22:43:32 2013] [error] [client 10.0.2.2] client denied by server configuration: /vagrant/www/phpinfo/public_html/index.html
+[Tue Jan 08 22:45:42 2013] [error] [client 10.0.2.2] client denied by server configuration: /vagrant/www/phpinfo/public_html/

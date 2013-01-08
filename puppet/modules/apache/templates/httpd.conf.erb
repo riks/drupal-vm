@@ -1,27 +1,30 @@
-#ServerTokens ProductOnly
-#ServerRoot "/etc/httpd"
-#PidFile run/httpd.pid
-#Timeout <%= scope.lookupvar('apache::params::timeout') %>
-#KeepAlive <%= scope.lookupvar('apache::params::keepalive') %>
-#MaxKeepAliveRequests 100
-#KeepAliveTimeout 15
+ServerTokens Prod
+ServerSignature <%= scope.lookupvar('apache::params::serversignature') %>
 
-#<IfModule prefork.c>
-#StartServers       8
-#MinSpareServers    5
-#MaxSpareServers   20
-#ServerLimit      256
-#MaxClients       256
-#MaxRequestsPerChild  4000
-#</IfModule>
+ServerRoot "/etc/httpd"
+PidFile run/httpd.pid
+
+Timeout <%= scope.lookupvar('apache::params::timeout') %>
+KeepAlive <%= scope.lookupvar('apache::params::keepalive') %>
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5
+
+<IfModule prefork.c>
+ StartServers       8
+ MinSpareServers    5
+ MaxSpareServers   20
+ ServerLimit      256
+ MaxClients       256
+ MaxRequestsPerChild  4000
+</IfModule>
 
 #<IfModule worker.c>
-#StartServers         4
-#MaxClients         300
-#MinSpareThreads     25
-#MaxSpareThreads     75 
-#ThreadsPerChild     25
-#MaxRequestsPerChild  0
+ #StartServers         4
+ #MaxClients         300
+ #MinSpareThreads     25
+ #MaxSpareThreads     75 
+ #ThreadsPerChild     25
+ #MaxRequestsPerChild  0
 #</IfModule>
 
 Listen <%= scope.lookupvar('apache::params::port') %>
@@ -33,7 +36,7 @@ Listen <%= scope.lookupvar('apache::params::port') %>
 #LoadModule authn_anon_module modules/mod_authn_anon.so
 #LoadModule authn_dbm_module modules/mod_authn_dbm.so
 #LoadModule authn_default_module modules/mod_authn_default.so
-#LoadModule authz_host_module modules/mod_authz_host.so
+LoadModule authz_host_module modules/mod_authz_host.so
 #LoadModule authz_user_module modules/mod_authz_user.so
 #LoadModule authz_owner_module modules/mod_authz_owner.so
 #LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
@@ -90,12 +93,10 @@ Group apache
 #ServerAdmin root@localhost
 #ServerName www.example.com:80
 
-#UseCanonicalName Off
-
+UseCanonicalName Off
 Options None
-<Directory /> 
-	#Order Allow,Deny
-	#Deny from all 
+
+<Directory />
 	Options None 
 	AllowOverride None
 </Directory>
@@ -103,24 +104,24 @@ Options None
 DirectoryIndex index.html
 
 #AccessFileName .htaccess
-#<Files ~ "^\.ht">
-#    Order allow,deny
-#    Deny from all
-#    Satisfy All
-#</Files>
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
 
 TypesConfig /etc/mime.types
-
-#DefaultType text/plain
+DefaultType text/plain
+AddDefaultCharset UTF-8
 
 #<IfModule mod_mime_magic.c>
 #   MIMEMagicFile /usr/share/magic.mime
 #   MIMEMagicFile conf/magic
 #</IfModule>
 
-#HostnameLookups Off
-#EnableMMAP off
-#EnableSendfile off
+HostnameLookups Off
+EnableMMAP off
+EnableSendfile off
 
 #ErrorLog logs/error_log
 LogLevel <%= scope.lookupvar('apache::params::loglevel') %>
@@ -135,9 +136,6 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combine
 #CustomLog logs/agent_log agent
 #CustomLog logs/access_log combined
 
-#ServerSignature <%= scope.lookupvar('apache::params::serversignature') %>
-
-#AddDefaultCharset UTF-8
 #AddType application/x-tar .tgz
 #AddEncoding x-compress .Z
 #AddEncoding x-gzip .gz .tgz
