@@ -12,4 +12,5 @@ exec { "open port 80 save":
 }
 
 include apache
+include php
 # default params überschreiben, z.b. loglevel bei dev auf info stellen.
