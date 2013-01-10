@@ -13,4 +13,6 @@ exec { "open port 80 save":
 
 include apache
 include php
+php::extension {"mysql"}
+include mysql::server
 # default params überschreiben, z.b. loglevel bei dev auf info stellen.
