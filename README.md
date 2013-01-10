@@ -40,3 +40,4 @@ Weblinks
 * Eclipse settings for local drupal, php, symfony development
 * Puppet Manifest for logration settings.
 * Define a location for the logs of vhosts.
+* Install Samba on Dev instead of shared folders (http://charlesa.net/tutorials/centos/centossamba.php, http://wiki.centos.org/HowTos/SetUpSamba)
