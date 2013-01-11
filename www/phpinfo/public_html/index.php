@@ -5,10 +5,6 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php	
-		echo 'Thomas'; 
-		$link = mysql_connect('localhost', 'root', 'password');
-		echo $link . 'Test';
-	?>
+	<?php phpinfo(); ?>
 </body>
 </html>
