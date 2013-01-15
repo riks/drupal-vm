@@ -1,13 +1,18 @@
-
-
-class mysql::client::install {
-  package { 'mysql-client':
-    name    => $mysql::params::client_package,
-    ensure  => $mysql::params::client_version,
-  }
-}
-
+# Class: mysql::client
+#
+# Manages mysql client installation
+#
+# Usage:
+# include mysql::client
+#
 class mysql::client {
-  include mysql
-  include mysql::client::install
+
+  include mysql::params
+
+  package { 'mysql-client':
+    ensure => present,
+    name   => $mysql::params::package_client,
+  }
+
 }
+

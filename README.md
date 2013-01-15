@@ -35,9 +35,9 @@ Weblinks
 # TODO (a more modular approach)
 * CI VM (Jenkins, PHPUnit, Simpletest, Drush, Drush make, Selenium)
 * Dev VM enhance, more modular approach
-* Builder (Vagrant, Virtualbox, Puppet)
+* Builder VM (Vagrant, Virtualbox, Puppet)
 * Drupal Blueprint (Drupal, Features, Install profile, make file, aliases, directory structure)
 * Eclipse settings for local drupal, php, symfony development
-* Puppet Manifest for logration settings.
+* Puppet Manifest for logrotation settings.
 * Define a location for the logs of vhosts.
 * Install Samba on Dev instead of shared folders (http://charlesa.net/tutorials/centos/centossamba.php, http://wiki.centos.org/HowTos/SetUpSamba)
