@@ -41,4 +41,5 @@ Weblinks
 * Puppet Manifest for logrotation settings.
 * Puppet module tomcat and solr
 * Define a location for the logs of vhosts.
+* xdebug
 * Install Samba on Dev instead of shared folders (http://charlesa.net/tutorials/centos/centossamba.php, http://wiki.centos.org/HowTos/SetUpSamba)
