@@ -1,3 +1,21 @@
 [submodule "puppet/modules/apache"]
 	path = puppet/modules/apache
 	url = https://github.com/Bussmeyer/puppet-apache.git
+[submodule "puppet/modules/mysql"]
+	path = puppet/modules/mysql
+	url = https://github.com/Bussmeyer/puppet-mysql.git
+[submodule "puppet/modules/iptables"]
+	path = puppet/modules/iptables
+	url = https://github.com/Bussmeyer/puppet-iptables.git
+[submodule "puppet/modules/puppi"]
+	path = puppet/modules/puppi
+	url = https://github.com/Bussmeyer/puppi.git
+[submodule "puppet/modules/php"]
+	path = puppet/modules/php
+	url = https://github.com/Bussmeyer/puppet-php.git
+[submodule "puppet/modules/concat"]
+	path = puppet/modules/concat
+	url = https://github.com/Bussmeyer/puppet-concat.git
+[submodule "puppet/modules/drush"]
+	path = puppet/modules/drush
+	url = https://github.com/Bussmeyer/puppet-drush.git
