@@ -15,7 +15,7 @@ Vagrant::Config.run do |config|
     
     drupal_web_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/vagrant-manifests"
-      puppet.manifest_file = "drupal_web.pp"
+      puppet.manifest_file = "drupal_web_dev.pp"
       puppet.module_path = "puppet/modules"
     end
   end
