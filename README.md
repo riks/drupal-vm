@@ -41,5 +41,7 @@ Weblinks
 * Puppet Manifest for logrotation settings.
 * Puppet module tomcat and solr
 * Define a location for the logs of vhosts.
+* Create dev, test, prod nodes in the vagrant file.
 * xdebug
 * Install Samba on Dev instead of shared folders (http://charlesa.net/tutorials/centos/centossamba.php, http://wiki.centos.org/HowTos/SetUpSamba)
+* Check the use of git submodule. Create a central repo for puppet modules and include them in the project repo.
