@@ -14,6 +14,7 @@ Weblinks
 * http://shapeshed.com/setting-up-puppet-on-ubuntu-10-04/
 * https://github.com/drupalboxes/drupal-puppet
 * http://css.dzone.com/articles/creating-virtual-server
+* http://puppetcookbook.com/
 
 # Prepare your tools and environment
 * Create a working directory on your host.
