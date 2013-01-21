@@ -1,4 +1,4 @@
-/*class { "iptables": }
+class { "iptables": }
 
 class { "apache": }
 apache::vhost { 'localhost':
@@ -18,12 +18,13 @@ mysql::grant { "drupal":
   mysql_user => 'drupal',
   mysql_host => 'localhost',
 }
+
 class { "php": }
 php::module { "mysql": }
-php::module { "dom": }
+php::module { "xml": }
 php::module { "gd": }
 php::module { "mbstring": }
-*/
+
 include pear
 pear::package { "PEAR": }
 pear::package { "Console_Table": }

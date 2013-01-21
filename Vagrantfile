@@ -17,6 +17,7 @@ Vagrant::Config.run do |config|
       puppet.manifests_path = "puppet/vagrant-manifests"
       puppet.manifest_file = "drupal_web_dev.pp"
       puppet.module_path = "puppet/modules"
+      puppet.options = "--verbose"
     end
   end
 end
