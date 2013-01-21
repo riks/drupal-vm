@@ -29,5 +29,7 @@ include pear
 pear::package { "PEAR": }
 pear::package { "Console_Table": }
 pear::package { "drush":
+  version => "5.8.0",
   repository => "pear.drush.org",
+  require => Pear::Package["PEAR"],
 }
