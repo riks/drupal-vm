@@ -19,3 +19,6 @@
 [submodule "puppet/modules/drush"]
 	path = puppet/modules/drush
 	url = https://github.com/Bussmeyer/puppet-drush.git
+[submodule "puppet/modules/pear"]
+	path = puppet/modules/pear
+	url = https://github.com/Bussmeyer/puppet-pear.git
