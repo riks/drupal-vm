@@ -24,18 +24,9 @@ php::module { "dom": }
 php::module { "gd": }
 php::module { "mbstring": }
 */
-php::pear::module { "drush": 
-  use_package => 'no',
+include pear
+pear::package { "PEAR": }
+pear::package { "Console_Table": }
+pear::package { "drush":
+  repository => "pear.drush.org",
 }
-/*
-pear config-set auto_discover 1
-pear -d preferred_state=stable install drush
-
-package { "pear-pear.drush.org-drush":
-  name => "drush",
-  provider => "pear",
-  source => "pear.drush.org/drush/drush",
-  ensure => "latest",
-  #require => Class["php::pear"],
-}
-*/
