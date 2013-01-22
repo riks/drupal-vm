@@ -14,6 +14,7 @@ Weblinks
 * https://github.com/drupalboxes/drupal-puppet
 * http://css.dzone.com/articles/creating-virtual-server
 * http://puppetcookbook.com/
+* http://www.cyberciti.biz/faq/centos-fedora-redhat-linux-installing-phpmyadmin-webtool/
 
 # Prepare your tools and environment
 * Create a working directory on your host.
