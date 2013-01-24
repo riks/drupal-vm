@@ -13,6 +13,10 @@ Vagrant::Config.run do |config|
     
     drupal_web_config.vm.customize ["modifyvm", :id, "--memory", 512]
     
+	# Set the Timezone to something useful
+    #config.vm.provision :shell, :inline => "echo \"Europe/London\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
+    # Update the server
+    #config.vm.provision :shell, :inline => "apt-get update --fix-missing"
     drupal_web_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/vagrant-manifests"
       puppet.manifest_file = "drupal_web_dev.pp"

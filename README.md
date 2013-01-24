@@ -1,20 +1,10 @@
 ## drupal-vm
-
 # Initial setup on host
 Install on host:
 * Virtualbox
 * Vagrant
 * Puppet
 * Git
-
-Weblinks
-* http://devops.me/2011/10/07/bootstrapping-vagrant-with-puppet/
-* http://net.tutsplus.com/tutorials/php/vagrant-what-why-and-how/
-* http://bitfieldconsulting.com/puppet-drupal
-* https://github.com/drupalboxes/drupal-puppet
-* http://css.dzone.com/articles/creating-virtual-server
-* http://puppetcookbook.com/
-* http://www.cyberciti.biz/faq/centos-fedora-redhat-linux-installing-phpmyadmin-webtool/
 
 # Prepare your tools and environment
 * Create a working directory on your host.
@@ -25,15 +15,17 @@ Weblinks
 * vagrant ssh
 * http://localhost:8888
 
-# TODO (a more modular approach)
-* CI VM (Jenkins, PHPUnit, Simpletest, Drush, Drush make, Selenium)
-* Dev VM enhance, more modular approach
-* Builder VM (Vagrant, Virtualbox, Puppet)
-* Drupal Blueprint (Drupal, Features, Install profile, make file, aliases, directory structure)
-* Eclipse settings for local drupal, php, symfony development
+# TODO
 * Puppet Manifest for logrotation settings.
 * Puppet module tomcat and solr
-* Define a location for the logs of vhosts.
 * Create dev, test, prod nodes in the vagrant file.
-* xdebug
-* Change puppet-php repo: add a params to use another pear channel.
+* Add xdebug in php.ini
+* Change puppet-php module (pull request): add a params to use another pear channel.
+* CI VM (Jenkins, PHPUnit, Simpletest, Drush, Drush make, Selenium)
+* Eclipse settings for local drupal, php, symfony development
+
+# Weblinks
+* http://devops.me/2011/10/07/bootstrapping-vagrant-with-puppet/
+* https://github.com/drupalboxes/drupal-puppet
+* http://puppetcookbook.com/
+* http://www.cyberciti.biz/faq/centos-fedora-redhat-linux-installing-phpmyadmin-webtool/
