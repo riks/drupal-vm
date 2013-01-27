@@ -1,12 +1,34 @@
-class { "iptables": }
+# update os (yum update)
+
+#class { "iptables": }
+exec { "open port 80":
+  command => "iptables -I INPUT -p tcp --dport 80 -j ACCEPT",
+  path    => "/sbin/",
+}
+exec { "open port 80 save":
+  command => "service iptables save",
+  path    => "/sbin/",
+}
+exec { "open port 9999":
+  command => "iptables -I INPUT -p tcp --dport 9999 -j ACCEPT",
+  path    => "/sbin/",
+}
+exec { "open port 9999 save":
+  command => "service iptables save",
+  path    => "/sbin/",
+}
+
 
 class { "apache": }
 apache::vhost { 'localhost':
   docroot  => '/vagrant/www/localhost/public_html',
 }
-apache::vhost { 'phpinfo':
-  docroot  => '/vagrant/www/phpinfo/public_html',
-}
+#apache::vhost { 'phpMyAdmin':
+#  port => 9999,
+#  docroot  => '/vagrant/www/localhost/public_html',
+#}
+#missing: Listen 9999
+#missing: NameVirtualHost *:9999
 
 class { "mysql":
   root_password => 'password',
@@ -24,12 +46,23 @@ php::module { "mysql": }
 php::module { "xml": }
 php::module { "gd": }
 php::module { "mbstring": }
+# memory_limit = 256M
 
-include pear
-pear::package { "PEAR": }
-pear::package { "Console_Table": }
-pear::package { "drush":
-  version => "5.8.0",
-  repository => "pear.drush.org",
-  require => Pear::Package["PEAR"],
-}
+#class { "pear": }
+#pear::package { "PEAR": }
+#pear::package { "Console_Table": }
+#pear::package { "drush":
+  #version => "5.8.0",
+  #repository => "pear.drush.org",
+  #require => Pear::Package["PEAR"],
+#}
+
+# http://www.krizna.com/centos/how-install-phpmyadmin-centos-6/
+# phpMyAdmin
+
+#cron { "drupal-cron-localhost":
+#  command => "wget -O - -q -t 1 http://localhost/cron.php",
+#  hour => inline_template("<%= name.hash % 24 %>"),
+#  minute => "00",
+#}
+
