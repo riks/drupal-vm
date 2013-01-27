@@ -1,7 +1,7 @@
 ## drupal-vm
+Build local VMs with vagrant for your drupal development.
 
-# Initial setup on host
-Install on host:
+# Requirements on your local computer
 * Virtualbox
 * Vagrant
 * Puppet
