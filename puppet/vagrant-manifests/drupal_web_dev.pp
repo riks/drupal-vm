@@ -18,34 +18,31 @@ exec { "open port 9999 save":
   path    => "/sbin/",
 }
 
-
 class { "apache": }
 apache::vhost { 'localhost':
   docroot  => '/vagrant/www/localhost/public_html',
 }
-#apache::vhost { 'phpMyAdmin':
-#  port => 9999,
-#  docroot  => '/vagrant/www/localhost/public_html',
+apache::vhost { 'phpMyAdmin':
+  port => 9999,
+  docroot  => '/vagrant/www/localhost/public_html',
+}
+
+#class { "mysql":
+#  root_password => 'password',
 #}
-#missing: Listen 9999
-#missing: NameVirtualHost *:9999
+#mysql::grant { "drupal":
+#  mysql_privileges => 'ALL',
+#  mysql_password => 'password',
+#  mysql_db => 'drupal',
+#  mysql_user => 'drupal',
+#  mysql_host => 'localhost',
+#}
 
-class { "mysql":
-  root_password => 'password',
-}
-mysql::grant { "drupal":
-  mysql_privileges => 'ALL',
-  mysql_password => 'password',
-  mysql_db => 'drupal',
-  mysql_user => 'drupal',
-  mysql_host => 'localhost',
-}
-
-class { "php": }
-php::module { "mysql": }
-php::module { "xml": }
-php::module { "gd": }
-php::module { "mbstring": }
+#class { "php": }
+#php::module { "mysql": }
+#php::module { "xml": }
+#php::module { "gd": }
+#php::module { "mbstring": }
 # memory_limit = 256M
 
 #class { "pear": }
