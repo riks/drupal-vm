@@ -14,11 +14,12 @@ Create and manage local VMs with vagrant, puppet and git for your drupal develop
 * vagrant up
 
 # Check the results and start working
-* Log in via ssh: vagrant ssh
-* In your browser: http://localhost:8888
-* phpMyAdmin: http://localhost:9999
+* SSH: vagrant ssh
+* Browser: http://localhost:8888
+* IDE: Use the shared folder (e.g. cd ~/workspace/www)
 
 # TODO
+* Add phpMyAdmin with vhost http://localhost:9999
 * Puppet Manifest for logrotation settings.
 * Puppet module tomcat and solr
 * Create dev, test, prod nodes in the vagrant file.
@@ -32,3 +33,6 @@ Create and manage local VMs with vagrant, puppet and git for your drupal develop
 * https://github.com/drupalboxes/drupal-puppet
 * http://puppetcookbook.com/
 * http://www.cyberciti.biz/faq/centos-fedora-redhat-linux-installing-phpmyadmin-webtool/
+* http://www.adayinthelifeof.nl/2012/06/29/using-vagrant-and-puppet-to-setup-your-symfony2-environment/
+* Use dir structure: https://github.com/crohr/vagrant-presentation
+* http://mechanics.flite.com/blog/2012/07/24/better-dev-environments-with-vagrant-and-dotfiles/
