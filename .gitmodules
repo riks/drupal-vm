@@ -25,3 +25,6 @@
 [submodule "puppet\\modules\\rsync"]
 	path = puppet\\modules\\rsync
 	url = https://github.com/Bussmeyer/puppet-rsync.git
+[submodule "puppet\\modules\\yum"]
+	path = puppet\\modules\\yum
+	url = https://github.com/Bussmeyer/puppet-yum.git

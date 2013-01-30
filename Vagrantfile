@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
     web_dev_config.vm.forward_port 80, 8888, { :name => "http" }
     web_dev_config.vm.forward_port 9999, 9999, { :name => "http_pma" }
     
-    web_dev_config.vm.customize ["modifyvm", :id, "--memory", 512]
+    web_dev_config.vm.customize ["modifyvm", :id, "--memory", 1024]
     
 	# Set the Timezone to something useful
     #web_dev_config.vm.provision :shell, :inline => "echo \"Europe/London\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"

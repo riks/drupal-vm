@@ -1,27 +1,18 @@
 class web {
+  $firewall = false
+  $firewall_tool = [ 'iptables' ]
+  class { "iptables": }
   class { 'rsync': }
-  # update os (yum update)
-  
-  #class { "iptables": }
-  exec { "open port 80":
-    command => "iptables -I INPUT -p tcp --dport 80 -j ACCEPT",
-    path    => "/sbin/",
-  }
-  exec { "open port 80 save":
-    command => "service iptables save",
-    path    => "/sbin/",
-  }
-  
+  class { 'yum': }
   class { "apache": }
   apache::vhost { 'localhost':
     docroot  => '/vagrant/www/localhost/public_html',
-	#<Directory /vagrant/www/localhost/public_html>
-	  #AllowOverride All
-    #</Directory>
+	template => '/tmp/vagrant-puppet/manifests/templates/vhost.conf.erb',
   }
   
   class { "mysql":
     root_password => 'password',
+	template => "/tmp/vagrant-puppet/manifests/templates/my.conf.erb",      
   }
   mysql::grant { "drupal":
     mysql_privileges => 'ALL',
@@ -30,17 +21,15 @@ class web {
     mysql_user => 'drupal',
     mysql_host => 'localhost',
   }
-  #max_allowed_packet 
   
-  class { "php": }
+  class { "php": 
+    template => '/tmp/vagrant-puppet/manifests/templates/php.ini.erb',    
+  }
   php::module { "mysql": }
   php::module { "xml": }
   php::module { "gd": }
-  php::module { "mbstring": }
-  
-  #rpm -ivh http://ftp.jaist.ac.jp/pub/Linux/Fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+  php::module { "mbstring": }  
   php::module { "mcrypt": }
-  # memory_limit = 256M
   
   class { "pear": }
   pear::package { "PEAR": }
