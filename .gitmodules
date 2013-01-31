@@ -22,9 +22,9 @@
 [submodule "puppet/modules/pear"]
 	path = puppet/modules/pear
 	url = https://github.com/Bussmeyer/puppet-pear.git
-[submodule "puppet\\modules\\rsync"]
-	path = puppet\\modules\\rsync
+[submodule "puppet/modules/rsync"]
+	path = puppet/modules/rsync
 	url = https://github.com/Bussmeyer/puppet-rsync.git
-[submodule "puppet\\modules\\yum"]
-	path = puppet\\modules\\yum
+[submodule "puppet/modules/yum"]
+	path = puppet/modules/yum
 	url = https://github.com/Bussmeyer/puppet-yum.git
