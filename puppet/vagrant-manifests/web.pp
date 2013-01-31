@@ -1,9 +1,13 @@
 class web {
   $firewall = false
-  $firewall_tool = [ 'iptables' ]
-  class { "iptables": }
-  class { 'rsync': }
-  class { 'yum': }
+  $firewall_tool = [ "iptables" ]
+  class { "iptables": 
+    disable => true,
+  }
+  class { "rsync": 
+    disable => true,
+  }
+  class { "yum": }
   class { "apache": }
   apache::vhost { 'localhost':
     docroot  => '/vagrant/www/localhost/public_html',
@@ -47,4 +51,7 @@ class web {
   #  hour => inline_template("<%= name.hash % 24 %>"),
   #  minute => "00",
   #}
+  
+  # Password required.
+  #drush sql-sync @live @local --create-db --simulate=0
 }
