@@ -7,12 +7,12 @@ class web {
   class { "apache": }
   apache::vhost { 'localhost':
     docroot  => '/vagrant/www/localhost/public_html',
-	template => '/tmp/vagrant-puppet/manifests/templates/vhost.conf.erb',
+	  template => '/tmp/vagrant-puppet/manifests/templates/vhost.conf.erb',
   }
   
   class { "mysql":
     root_password => 'password',
-	template => "/tmp/vagrant-puppet/manifests/templates/my.conf.erb",      
+    template => "/tmp/vagrant-puppet/manifests/templates/my.conf.erb",      
   }
   mysql::grant { "drupal":
     mysql_privileges => 'ALL',
@@ -29,7 +29,9 @@ class web {
   php::module { "xml": }
   php::module { "gd": }
   php::module { "mbstring": }  
-  php::module { "mcrypt": }
+  php::module { "mcrypt": 
+    require => Class["yum"],
+  }
   
   class { "pear": }
   pear::package { "PEAR": }
