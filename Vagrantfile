@@ -10,19 +10,13 @@ Vagrant::Config.run do |config|
     #web_dev_config.vm.share_folder("v-logs", "/etc/httpd/logs", "./logs", { :create => true })
     web_dev_config.vm.forward_port 22, 2222, { :name => "ssh" }
     web_dev_config.vm.forward_port 80, 8888, { :name => "http" }
-    web_dev_config.vm.forward_port 9999, 9999, { :name => "http_pma" }
-    
+    #web_dev_config.vm.forward_port 9999, 9999, { :name => "http_pma" }
     web_dev_config.vm.customize ["modifyvm", :id, "--memory", 1024]
-    
-	# Set the Timezone to something useful
-    #web_dev_config.vm.provision :shell, :inline => "echo \"Europe/London\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
-    # Update the server
-    #web_dev_config.vm.provision :shell, :inline => "apt-get update --fix-missing"
     web_dev_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/vagrant-manifests"
-      puppet.manifest_file = "web_dev.pp"
+      puppet.manifest_file = "web.pp"
       puppet.module_path = "puppet/modules"
-      puppet.options = "--verbose"
+      puppet.options = "--debug --trace --summarize"
     end
   end
 end
