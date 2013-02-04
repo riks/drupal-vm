@@ -25,19 +25,21 @@ mysql::grant { "drupal02":
 }
 
 class { "php": 
-  template => '/tmp/vagrant-puppet/manifests/templates/php.ini.erb',    
+  template => '/tmp/vagrant-puppet/manifests/templates/php.ini.erb',
+  #display_errors
 }
 php::module { "mysql": }
 php::module { "xml": }
 php::module { "gd": }
 php::module { "mbstring": }  
-php::module { "mcrypt": 
-  require => File['yum.conf'],
-}
 
 class { "pear": }
-pear::package { "PEAR": }
-pear::package { "Console_Table": }
+pear::package { "PEAR": 
+  version => "1.9.4",
+}
+pear::package { "Console_Table": 
+  version => "1.1.5",
+}
 pear::package { "drush":
   version => "5.8.0",
   repository => "pear.drush.org",
@@ -52,3 +54,31 @@ pear::package { "drush":
 
 # Password required.
 #drush sql-sync @live @local --create-db --simulate=0
+
+exec { "drush dl panopoly":
+  command => "drush dl -y -v --destination=/tmp/drush panopoly",
+  path    => "/usr/bin/",
+  require => Pear::Package["drush"],
+}
+exec { "mv panopoly":
+  command => "mv /tmp/drush/panopoly-7.x-1.0-rc3 /vagrant/www/localhost/public_html",
+  path    => "/bin/",
+  require => Pear::Package["drush"],
+}
+exec { "drush si panopoly":
+  command => "drush si -y -v --root=/vagrant/www/localhost/public_html/ --db-url=mysql://root:password@127.0.0.1/drupal panopoly",
+  path    => "/usr/bin/",
+  require => Pear::Package["drush"],
+}
+#apache::vhost { 'phpmyadmin':
+#  docroot  => '/vagrant/www/localhost/public_html',
+#  template => '/tmp/vagrant-puppet/manifests/templates/vhost.conf.erb',
+#}
+#package { phpmyadmin:
+#  ensure => present,
+#  require => [ Package["php"], Php::Module["mysql"], File["yum.conf"] ],
+#  notify => Service["apache"],
+#}
+
+#sendmail/postfix
+#yum install nfs-utils nfs-utils-lib
