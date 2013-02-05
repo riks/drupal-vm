@@ -18,7 +18,7 @@ class { "mysql":
   root_password => 'password',
   template => "/tmp/vagrant-puppet/manifests/templates/my.conf.erb",      
 }
-mysql::grant { "drupal02":
+mysql::grant { "drupal":
   mysql_password => 'password',
   mysql_db => 'drupal',
   mysql_user => 'drupal',
@@ -36,13 +36,43 @@ php::module { "mcrypt":
 }
 
 class { "pear": }
-pear::package { "PEAR": }
-pear::package { "Console_Table": }
+#"pear channel-update pear.php.net"
+
+pear::package { "PEAR": 
+  version => "1.9.4",
+}
+pear::package { "Console_Table": 
+  version => "1.1.5",
+  require => Pear::Package["PEAR"],
+}
 pear::package { "drush":
   version => "5.8.0",
   repository => "pear.drush.org",
   require => Pear::Package["PEAR"],
 }
+
+
+apache::vhost { 'panopoly':
+  docroot  => '/vagrant/www/panopoly/public_html',
+  template => '/tmp/vagrant-puppet/manifests/templates/vhost.conf.erb',
+}
+exec { "drush dl panopoly":
+  command => "/usr/bin/drush dl panopoly --destination=/tmp/drush -y",
+  require => Pear::Package["drush"],
+}
+file { "/vagrant/www/panopoly":
+    ensure => "directory",
+}
+exec { "mv panopoly":
+  command => "/bin/mv /tmp/drush/panopoly-7.x-1.0-rc3 /vagrant/www/panopoly/public_html",
+  require => Exec["drush dl panopoly"],
+}
+exec { "drush si panopoly":
+  command => "/usr/bin/drush si panopoly --db-url=mysqli://root:password@localhost/drupal --root=/vagrant/www/panopoly/public_html -y",
+  require => Exec["mv panopoly"],
+}
+
+
 
 #cron { "drupal-cron-localhost":
 #  command => "wget -O - -q -t 1 http://localhost/cron.php",

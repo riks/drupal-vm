@@ -7,7 +7,7 @@
 <% if serveraliases != "" -%>
     ServerAlias <%= serveraliases %>
 <% end -%>
-    <Directory /vagrant/www/localhost/public_html>
+    <Directory <%= real_docroot %>>
       AllowOverride All
     </Directory>
     ErrorLog  <%= scope.lookupvar('apache::log_dir') %>/<%= name %>-error_log

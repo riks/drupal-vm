@@ -6,8 +6,7 @@ Vagrant::Config.run do |config|
     #web_dev_config.vm.network :hostonly, "192.168.33.10"
     web_dev_config.vm.box = "centos63"
     web_dev_config.vm.box_url = "https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box"
-    web_dev_config.vm.share_folder("v-web", "/vagrant/www", "./www", { :create => true })
-    #web_dev_config.vm.share_folder("v-logs", "/etc/httpd/logs", "./logs", { :create => true })
+    web_dev_config.vm.share_folder("v-web", "/vagrant/www", "./www", { :create => true, :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/) })
     web_dev_config.vm.forward_port 22, 2222, { :name => "ssh" }
     web_dev_config.vm.forward_port 80, 8888, { :name => "http" }
     #web_dev_config.vm.forward_port 9999, 9999, { :name => "http_pma" }
