@@ -437,7 +437,7 @@ expose_php = On
 
 ; Maximum execution time of each script, in seconds
 ; http://www.php.net/manual/en/info.configuration.php#ini.max-execution-time
-max_execution_time = 30     
+max_execution_time = 60
 
 ; Maximum amount of time each script may spend parsing request data. It's a good
 ; idea to limit this time on productions servers in order to eliminate unexpectedly
@@ -454,7 +454,7 @@ max_input_time = 60
 
 ; Maximum amount of memory a script may consume (128MB)
 ; http://www.php.net/manual/en/ini.core.php#ini.memory-limit
-memory_limit = 1024M
+memory_limit = 512M
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Error handling and logging ;
@@ -1657,3 +1657,8 @@ soap.wsdl_cache_ttl=86400
 ; Local Variables:
 ; tab-width: 4
 ; End:
+
+apc.rfc1867 = on
+apc.rfc1867_ttl = 7200
+apc.max_file_size = 50G
+apc.slam_defense = off

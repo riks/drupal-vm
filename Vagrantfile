@@ -9,16 +9,16 @@ Vagrant::Config.run do |config|
     web_dev_config.vm.share_folder("v-web", "/vagrant/www", "./www", { :create => true, :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/) })
     web_dev_config.vm.forward_port 22, 2222, { :name => "ssh" }
     web_dev_config.vm.forward_port 80, 8888, { :name => "http" }
-    #web_dev_config.vm.forward_port 9999, 9999, { :name => "http_pma" }
-    web_dev_config.vm.customize ["modifyvm", :id, "--memory", 512]
+    web_dev_config.vm.customize ["modifyvm", :id, "--memory", 1024]
 
     # Fixing stability and performance issues
     # https://www.virtualbox.org/ticket/8474
+    config.vm.customize ["modifyvm", :id, "--ioapic", "off"]
+    config.vm.customize ["modifyvm", :id, "--nestedpaging", "off"]
+    
     #config.vm.customize ["modifyvm", :id, "--hwvirtex", "off"]
-    #config.vm.customize ["modifyvm", :id, "--vtxvpid", "off"]
-    #config.vm.customize ["modifyvm", :id, "--ioapic", "off"]
+    #config.vm.customize ["modifyvm", :id, "--vtxvpid", "off"]    
     #config.vm.customize ["modifyvm", :id, "--pae", "off"]
-    #config.vm.customize ["modifyvm", :id, "--nestedpaging", "off"]
     #config.vm.customize ["modifyvm", :id, "--largepages", "off"]
  	  #config.vm.customize ["setextradata", :id, "VBoxInternal/Devices/ahci/0/LUN#0/Config/FlushInterval", "1000000"]
     
