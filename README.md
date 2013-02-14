@@ -11,6 +11,7 @@ Create and manage local VMs with vagrant, puppet and git for your drupal develop
 * cd into a workspace directory. (e.g. cd ~/workspace)
 * git clone https://github.com/Bussmeyer/drupal-vm.git
 * cd drupal-vm
+* git submodule update --init --recursive
 * vagrant up
 
 # Check the results and start working
